@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="game-npc.css" >
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="game-npc.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameNPCdemo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #game-container {
+        width: 800px;
+        height: 600px;
+        border: 2px solid black;
+        position: relative;
+        margin: 50px auto;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        justify-content: center;
+    }
+    .character {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+    }
+    #player {
+        background-color: red;
+    }
+    .npc {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+    }
+</style>
+</head>
+
+<body>
+
+    <div id="dialog-box">
+        <img id="npc-image" src="" alt="NPC" style="transform: translateY(-8%); width: 150px; height: 150px; float: left; margin-right: 10px;">
+        <div id="dialog-content" style="transform: translateY(30%); overflow-y: auto; max-height: 200px;"></div>
+    </div>
+
+
+
+<div id="game-container">
+    <div id="player" class="character"></div>
+    <div id="npcA" class="npc" style="top: 200px; left: 500px; background-color: purple; ">
+        <img src="knight_npc.png" alt="NPC A" style="width: 90px; height: 90px; position:absolute; top:-45px; left:-30px;" >
+    </div>
+    <div id="npcB" class="npc" style="top: 350px; left: 200px; background-color: purple; ">
+        <img src="witch_npc.png" alt="NPC B" style="width: 90px; height: 90px; position:absolute; top:-45px; left:-30px;">
+    </div>
+</div>
+
+
+
+<div id="dialog-box"></div>
+
+<script >
+    const player = document.getElementById("player");
+    const npcA = document.getElementById("npcA");
+    const npcB = document.getElementById("npcB");
+    const npcC = document.getElementById("npcC");
+    const dialogBox = document.getElementById("dialog-box");
+
+    let playerX = 0;
+    let playerY = 0;
+
+    document.addEventListener("keydown", function(event) {
+        const key = event.key;
+        let canMove = true;
+        switch(key) {
+            case "ArrowUp":
+                playerY -= 10;
+                break;
+            case "ArrowDown":
+                playerY += 10;
+                break;
+            case "ArrowLeft":
+                playerX -= 10;
+                break;
+            case "ArrowRight":
+                playerX += 10;
+                break;
+        }
+
+        if (playerX < 0) playerX = 0;
+        if (playerY < 0) playerY = 0;
+        const gameContainer = document.getElementById('game-container');
+        if (playerX > gameContainer.offsetWidth - player.offsetWidth) {
+            playerX = gameContainer.offsetWidth - player.offsetWidth;
+        }
+        if (playerY > gameContainer.offsetHeight - player.offsetHeight) {
+            playerY = gameContainer.offsetHeight - player.offsetHeight;
+        }
+
+        if (canMove) {
+            player.style.top = playerY + "px";
+            player.style.left = playerX + "px";
+            checkInteraction();
+        }
+    });
+
+
+    function checkInteraction() {
+    const npcs = [{
+        element: npcA,
+        name: "騎士",
+        image: "knight_dia.png",
+        dialog: "\n你好"
+    }, {
+        element: npcB,
+        name: "魔女",
+        image: "witch_dia.png",
+        dialog: "\n我可以加入你的隊伍嗎?"
+    }, {
+        element: npcC,
+        name: "村民C",
+        image: "npc_c.png",
+        dialog: "嗨"
+    }];
+
+    npcs.forEach(npc => {
+        if (distance(player, npc.element) < 40) {
+            if (!npc.element.querySelector(".dialog-button")) {
+                const dialogButton = document.createElement("button");
+                dialogButton.textContent = "聊聊";
+                dialogButton.classList.add("dialog-button");
+                dialogButton.addEventListener("click", function() {
+                    dialogBox.style.display = "block";
+                    document.getElementById("npc-image").src = npc.image;
+                    document.getElementById("dialog-content").innerText = npc.name + "：" + npc.dialog;
+
+                });
+                npc.element.appendChild(dialogButton);
+            }
+        } else {
+            const dialogButton = npc.element.querySelector(".dialog-button");
+            if (dialogButton) {
+                dialogButton.remove();
+                dialogBox.style.display = "none";
+            }
+        }
+    });
+}
+
+
+
+    function distance(obj1, obj2) {
+        const dx = parseInt(obj1.style.left) - parseInt(obj2.style.left);
+        const dy = parseInt(obj1.style.top) - parseInt(obj2.style.top);
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function isColliding(obj1, obj2) {
+        const obj1Rect = obj1.getBoundingClientRect();
+        const obj2Rect = obj2.getBoundingClientRect();
+        return (
+            obj1Rect.top < obj2Rect.bottom &&
+            obj1Rect.bottom > obj2Rect.top &&
+            obj1Rect.left < obj2Rect.right &&
+            obj1Rect.right > obj2Rect.left
+        );
+    }
+
+
+</script>
+
+
+</body>
+</html>

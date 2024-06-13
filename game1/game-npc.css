@@ -1,0 +1,27 @@
+.dialog-button {
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-130%);
+    width:50px;
+    height:30px;
+}
+
+#dialog-box {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 10px;
+    width:450px;
+    height:130px;
+}
+
+.countdown {
+    font-size: 24px;
+  }
+
+
