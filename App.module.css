@@ -1,0 +1,61 @@
+.body{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.bucket {
+  text-align: center;
+  justify-content: center;
+  transform: translateY(90%);
+}
+
+.h1 {
+  font-size: 50px;
+  color: rgb(242, 198, 117);
+  letter-spacing: 20px;
+  user-select: none;
+  margin: 0;
+}
+
+.background {
+  background-image: url("./background/fypindex1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.btn {
+  min-width: 200px;
+  border: none;
+  border-radius: 20px;
+  background: green;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 6px 6px brown;
+  padding: 10px 20px;
+  height: 50px;
+  width: 50px;
+}
+.btn:active {
+  background: gray;
+  color: white;
+  box-shadow: none;
+  animation: anim 100ms;
+}
+@keyframes anim {
+  0% { background: radial-gradient(circle at center, rgba( 160, 49, 49, 0 ) 0%, #ffffff 0%, #ffffff 100%); }
+  25% { background: radial-gradient(circle at center, rgba( 160, 49, 49, 0.3) 24%, #ffffff 25%, #ffffff 100%); }
+  50% { background: radial-gradient(circle at center, rgba( 160, 49, 49, 0.5 ) 49%, #ffffff 50%, #ffffff 100%); }
+  75% { background: radial-gradient(circle at center, rgba( 160, 49, 49, 0.8 ) 74%, #ffffff 75%, #ffffff 100%); }
+  100% { background: radial-gradient(circle at center, gray 99%, #ffffff 100%, #ffffff 100%); color: #ffffff; }
+}
