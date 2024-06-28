@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="map3.css">
+    <script src="map3.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Box</title>
+    <script>
+        // 检查用户来自哪个页面
+        const urlParams = new URLSearchParams(window.location.search);
+    // 设置 currentPage 的值为 URL 参数中的 from 参数值，默认为 map1
+        const currentPage = urlParams.get('from') || "map3";
+
+        // 确定初始位置
+        let initialPlayerX, initialPlayerY;
+        switch(currentPage) {
+            case "map3":
+                initialPlayerX = 400;
+                initialPlayerY = 30;
+                break;
+            case "map6":
+                initialPlayerX = 400;
+                initialPlayerY = 30;
+                break;
+            case "map4":
+                initialPlayerX = 750;
+                initialPlayerY = 300;
+                break;
+            case "map5":
+                initialPlayerX = 400;
+                initialPlayerY = 550;
+                break;
+            case "map2":
+                initialPlayerX = 30;
+                initialPlayerY = 300;
+                break;
+            default:
+                initialPlayerX = 0;
+                initialPlayerY = 0;
+        }
+    </script>
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="player" class="character"></div>
+        <div id="transition-zone1"></div>
+        <div id="transition-zone2"></div>
+        <div id="transition-zone3"></div>
+        <div id="transition-zone4"></div>
+        <div id="NUM">3</div>
+    </div>
+
+    <button id="open-bag-button" onclick="openBag()">打開背包</button>
+    
+
+</body>
+</html>

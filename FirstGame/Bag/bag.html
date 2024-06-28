@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bag.css">
+    <script src="bag.js" defer></script>
+    <title>背包</title>
+</head>
+<body>
+    <div id="bag-container">
+        <div id="top-section">
+            <div id="player-image">
+                <img src="path_to_player_image.png" alt="Player Image">
+            </div>
+            <div id="player-stats">
+                <p>血量: <span id="health-current">50</span> / <span id="health-max">100</span></p>
+                <p>攻擊: <span id="attack">20</span></p>
+                <p>防禦: <span id="defense">15</span></p>
+                <p>魔力: <span id="mana-current">30</span> / <span id="mana-max">50</span></p>
+            </div>
+        </div>
+        <div id="bottom-section">
+            <!-- 手動添加10個物品格子 -->
+            <div class="item-slot" id="slot-1"></div>
+            <div class="item-slot" id="slot-2"></div>
+            <div class="item-slot" id="slot-3"></div>
+            <div class="item-slot" id="slot-4"></div>
+            <div class="item-slot" id="slot-5"></div>
+            <div class="item-slot" id="slot-6"></div>
+            <div class="item-slot" id="slot-7"></div>
+            <div class="item-slot" id="slot-8"></div>
+            <div class="item-slot" id="slot-9"></div>
+            <div class="item-slot" id="slot-10"></div>
+        </div>
+    </div>
+    <button id="back-button">返回</button>
+</body>
+</html>

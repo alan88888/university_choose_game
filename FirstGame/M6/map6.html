@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="map6.css">
+    <script src="map6.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Box</title>
+    <script>
+        // 检查用户来自哪个页面
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentPage = urlParams.get('from') || "map6";
+
+        // 确定初始位置
+        let initialPlayerX, initialPlayerY;
+        switch(currentPage) {
+            case "map3":
+                initialPlayerX = 400;
+                initialPlayerY = 540;
+                break;
+            case "map7":
+                initialPlayerX = 400;
+                initialPlayerY = 30;
+                break;
+            default:
+                initialPlayerX = 0;
+                initialPlayerY = 0;
+        }
+    </script>
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="transition-zone1"></div>
+        <div id="transition-zone2"></div>
+        <div id="player" class="character"></div>
+        <div id="NUM">6</div>
+    </div>
+
+    <button id="open-bag-button" onclick="openBag()">打開背包</button>
+    
+
+</body>
+</html>

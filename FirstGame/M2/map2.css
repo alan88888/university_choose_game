@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#game-container {
+    width: 800px; /* 修改邊框大小 */
+    height: 600px; /* 修改邊框大小 */
+    border: 2px solid black; /* 加大邊框 */
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden; /* 讓牆體不會超出遊戲區域 */
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+}
+
+.character {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+#player {
+    background-color: red;
+}
+
+#transition-zone {
+    width: 30px;
+    height: 100px; /* 黑框高度 */
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 0; /* 右上角 */
+    transform: translateY(-50%);
+    border-right: 2px solid red;
+    cursor: pointer;
+}
+
+#open-bag-button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#open-bag-button:hover {
+    background-color: #45a049;
+}
+
+#NUM {
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#box {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: brown;
+    top: 150px;
+    left: 300px;
+}
+
+.message {
+    position: absolute;
+    display: none;
+    top: 120px;
+    left: 410px; /* 将对话按钮移动到箱子右边 */
+    padding: 5px;
+}
+
+#open-box-button {
+    padding: 5px 10px; /* 将对话按钮改小一点 */
+    font-size: 14px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#open-box-button:hover {
+    background-color: #FF8C00;
+}
+
+.dialogue-box {
+    position: absolute;
+    top: 55%; /* 调整对话框位置 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+#dialogue-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#dialogue-text {
+    margin-bottom: 20px;
+}
+
+#accept-button, #decline-button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #c9a454;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#accept-button:hover, #decline-button:hover {
+    background-color: #a78846;
+}

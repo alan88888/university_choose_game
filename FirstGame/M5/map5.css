@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#game-container {
+    width: 800px;
+    height: 600px;
+    border: 2px solid black;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+}
+.character {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+#player {
+    background-color: red;
+}
+#npc {
+    background-color: pink;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#transition-zone {
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 2px solid red;
+    cursor: pointer;
+}
+#open-bag-button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#open-bag-button:hover {
+    background-color: #45a049;
+}
+#NUM {
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.hidden {
+    display: none;
+}
+
+#talk-button {
+    position: absolute;
+    transform: translate(-225%, -250%); /* 調整 transform 中的百分比值 */
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#talk-button:hover {
+    background-color: #FF8C00;
+}
+
+#dialogue-box {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* 加长对话框 */
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    text-align: center;
+}
+#dialogue-npc-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#dialogue-ok, #dialogue-no {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #c9a454;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#dialogue-ok:hover, #dialogue-no:hover {
+    background-color: #a78846;
+}

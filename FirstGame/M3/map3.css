@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#game-container {
+    width: 800px; /* 修改邊框大小 */
+    height: 600px; /* 修改邊框大小 */
+    border: 2px solid black; /* 加大邊框 */
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden; /* 讓牆體不會超出遊戲區域 */
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+}
+
+.character {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+#player {
+    background-color: red;
+}
+
+#transition-zone1 {
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 2px solid red;
+    cursor: pointer;
+}
+
+#transition-zone2 {
+    width: 30px;
+    height: 100px; /* 黑框高度 */
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: 0; /* 右上角 */
+    transform: translateY(-50%);
+    border-right: 2px solid red;
+    cursor: pointer;
+}
+
+#transition-zone3 {
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid red;
+    cursor: pointer;
+}
+
+#transition-zone4 {
+    width: 30px;
+    height: 100px; /* 黑框高度 */
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 0; /* 右上角 */
+    transform: translateY(-50%);
+    border-left: 2px solid red;
+    cursor: pointer;
+}
+
+#open-bag-button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#open-bag-button:hover {
+    background-color: #45a049;
+}
+
+#NUM {
+    font-size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="map2.css">
+    <script src="map2.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Box</title>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentPage = urlParams.get('from') || "map2";
+
+        // 確定初始位置
+        let initialPlayerX, initialPlayerY;
+        switch(currentPage) {
+            case "map3":
+                initialPlayerX = 750;
+                initialPlayerY = 300;
+                break;
+            case "map1":
+                initialPlayerX = 400;
+                initialPlayerY = 300;
+                break;
+            default:
+                initialPlayerX = 0;
+                initialPlayerY = 0;
+        }
+    </script>
+</head>
+<body>
+    <div id="game-container">
+        <div id="transition-zone"></div>
+        <div id="player" class="character"></div>
+        <div id="box" class="box"></div>
+        <div id="NUM">2</div>
+        <div id="message" class="message">
+            <button id="open-box-button">對話</button>
+        </div>
+    </div>
+
+    <button id="open-bag-button" onclick="openBag()">打開背包</button>
+
+    <!-- 对话框 -->
+    <div id="dialogue-box" class="dialogue-box hidden">
+        <div id="dialogue-title">美食家-食雪漢</div>
+        <div id="dialogue-text">歡迎來到會員制餐廳，要來一份隨機的秘製餐點嗎 ?</div>
+        <button id="accept-button">我已經等不及了，快點端上來罷</button>
+        <button id="decline-button">不了，謝謝</button>
+    </div>
+</body>
+</html>

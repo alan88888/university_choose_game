@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#bag-container {
+    width: 400px;
+    height: 400px;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#top-section {
+    display: flex;
+    height: 50%;
+    border-bottom: 2px solid #000;
+}
+
+#player-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #000;
+}
+
+#player-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#player-stats {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#player-stats p {
+    margin: 10px 0;
+}
+
+#bottom-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    height: 50%;
+}
+
+.item-slot {
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#item-description {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 5px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.item img {
+    width: 65px; /* 你可以调整这个值来改变图片的大小 */
+    height: 65px; /* 你可以调整这个值来改变图片的大小 */
+}
+
+.item span {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
