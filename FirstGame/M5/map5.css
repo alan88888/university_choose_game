@@ -3,31 +3,57 @@ body {
     margin: 0;
     padding: 0;
 }
+
 #game-container {
     width: 800px;
     height: 600px;
     border: 2px solid black;
     position: relative;
     margin: 50px auto;
+    background-image: url('map5.png');
     overflow: hidden;
     background-size: cover;
     background-position: center;
     justify-content: center;
 }
+
+#high-layer {
+    width: 800px;
+    height: 600px;
+    background-image: url('map5-high.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    z-index: 100; 
+}
+
 .character {
     width: 30px;
     height: 30px;
     position: absolute;
 }
+
 #player {
     background-color: red;
 }
+
 #npc {
-    background-color: pink;
-    top: 50%;
-    left: 50%;
+    top: 60%;
+    left: 55%;
     transform: translate(-50%, -50%);
 }
+
+#npc img {
+    position: absolute;
+    top: -20px; 
+    left: -22px; 
+    width: 75px; 
+    height: 75px; 
+}
+
 #transition-zone {
     width: 100px;
     height: 30px;
@@ -39,6 +65,7 @@ body {
     border-top: 2px solid red;
     cursor: pointer;
 }
+
 #open-bag-button {
     position: absolute;
     top: 80%;
@@ -52,22 +79,29 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+
 #open-bag-button:hover {
     background-color: #45a049;
 }
+
 #NUM {
     font-size: 60px;
     position: absolute;
     top: 50%;
     left: 50%;
 }
+
 .hidden {
     display: none;
 }
 
-#talk-button {
+#button-container {
     position: absolute;
-    transform: translate(-225%, -250%); /* 調整 transform 中的百分比值 */
+    top: 330px; 
+    left: 480px;
+}
+
+#talk-button {
     padding: 5px 10px;
     font-size: 14px;
     background-color: #FFA500;
@@ -86,21 +120,52 @@ body {
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
-    width: 400px; /* 加长对话框 */
+    width: 600px; 
     padding: 20px;
-    background-color: white;
-    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border: 4px solid rgb(179, 152, 0); 
+    border-radius: 15px; 
     text-align: center;
+    display: none;
+    display: flex;
+    align-items: center;
 }
+
+.dialogue-image {
+    width: 130px;
+    height: 130px;
+    margin-right: 20px;
+    transform: scaleX(-1); 
+}
+
+#dialogue-content {
+    flex: 1;
+    text-align: left;
+}
+
 #dialogue-npc-name {
     font-weight: bold;
     margin-bottom: 10px;
+    color: white; 
+    font-size: 24px; 
+    font-family: 'Courier New', Courier, monospace; 
 }
 
-#dialogue-ok, #dialogue-no {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 16px;
+#dialogue-text {
+    color: white; 
+    font-size: 16px; 
+}
+
+#dialogue-options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogue-option-button {
+    padding: 5px 10px;
+    margin: 5px 0;
+    font-size: 14px;
     background-color: #c9a454;
     color: white;
     border: none;
@@ -108,6 +173,187 @@ body {
     border-radius: 5px;
 }
 
-#dialogue-ok:hover, #dialogue-no:hover {
+.dialogue-option-button:hover {
     background-color: #a78846;
+}
+
+#block-zone-1 {
+    width: 160px; 
+    height: 180px; 
+    position: absolute;
+    top: 240px; 
+    left: 0px; 
+}
+
+#block-zone-2 {
+    width: 170px; 
+    height: 160px;
+    position: absolute;
+    top: 0px; 
+    left: 0px; 
+}
+
+#block-zone-3 {
+    width: 180px; 
+    height: 200px; 
+    position: absolute;
+    top: 400px; 
+    left: 640px; 
+}
+
+#block-zone-4 {
+    width: 15px; 
+    height: 110px; 
+    position: absolute;
+    top: 0px; 
+    left: 490px; 
+}
+
+#block-zone-5 {
+    width: 15px; 
+    height: 60px; 
+    position: absolute;
+    top: 0px; 
+    left: 290px; 
+}
+
+#block-zone-6 {
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    top: 520px; 
+    left: 0px; 
+}
+
+.cloud {
+    position: absolute;
+    top: 0;
+    left: -150px; 
+    z-index: 200; 
+    pointer-events: none; 
+}
+
+@keyframes moveCloud {
+    from {
+        left: -200px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+#fishing-game {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 40px;
+    display: none;
+}
+
+#fishing-bar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    display: flex;
+}
+
+.bar-section {
+    height: 100%;
+    display: inline-block;
+}
+
+.bar-section.grey {
+    background-color: grey;
+    width: 30%;
+}
+
+.bar-section.yellow {
+    background-color: yellow;
+    width: 15%;
+}
+
+.bar-section.green {
+    background-color: green;
+    width: 10%;
+}
+
+#pointer {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: red;
+    top: 0;
+    animation: movePointer 2s linear infinite;
+}
+
+@keyframes movePointer {
+    0% { left: 0%; }
+    50% { left: 100%; }
+    100% { left: 0%; }
+}
+
+#fish-button {
+    position: absolute;
+    top: 50px; /* 按鈕位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#fish-button:hover {
+    background-color: #FF8C00;
+}
+
+#message-board {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 200; /* 確保訊息板在最上層 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#message-board.hidden {
+    display: none;
+}
+
+#fish-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#message-text {
+    color: white;
+    margin-bottom: 10px;
+}
+
+#confirm-button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirm-button:hover {
+    background-color: #45a049;
 }

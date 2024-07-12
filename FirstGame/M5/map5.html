@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="map5.css">
-    <script src="map5.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="map5.css">
     <title>Centered Box</title>
-    <script>
-        // 检查用户来自哪个页面
-        const currentPage = "map5"; // 设置当前页面的来源
-
-        // 确定初始位置
-        let initialPlayerX, initialPlayerY;
-        switch(currentPage) {
-            case "map3":
-                initialPlayerX = 400;
-                initialPlayerY = 540;
-                break;
-            default:
-                initialPlayerX = 0;
-                initialPlayerY = 0;
-        }
-    </script>
 </head>
 <body>
-
     <div id="game-container">
         <div id="transition-zone"></div>
         <div id="player" class="character"></div>
-        <div id="npc" class="character"></div>
-        <div id="NUM">5</div>
-        <button id="talk-button" class="hidden">對話</button>
+        <div id="npc" class="character">
+            <img src="Guide-1.png" alt="NPC">
+        </div>
+        <div id="block-zone-1"></div>
+        <div id="block-zone-2"></div>
+        <div id="block-zone-3"></div>
+        <div id="block-zone-4"></div>
+        <div id="block-zone-5"></div>
+        <div id="block-zone-6"></div>
+        <div id="button-container">
+            <button id="talk-button" class="hidden">對話</button>
+        </div>
         <div id="dialogue-box" class="hidden">
-            <p id="dialogue-npc-name">引路人-蘇菲</p>
-            <p id="dialogue-text">需要我為您回復精神嗎?那麼請握起我的手，片刻就好</p>
-            <button id="dialogue-ok">好的，謝謝妳(握起手)</button>
-            <button id="dialogue-no">不用，沒關係</button>
+            <img src="Guide-2.png" alt="Guide" id="dialogue-image" class="dialogue-image">
+            <div id="dialogue-content">
+                <p id="dialogue-npc-name">引路人-緹妮雅</p>
+                <p id="dialogue-text">需要我為您回復精神嗎?那麼請握起我的手，片刻就好</p>
+                <div id="dialogue-options"></div>
+            </div>
+        </div>
+        <div id="high-layer"></div>
+        <div class="cloud" id="cloud-1"><img src="cloud-1.png" alt="Cloud 1"></div>
+        <div class="cloud" id="cloud-2"><img src="cloud-2.png" alt="Cloud 2"></div>
+        <div class="cloud" id="cloud-3"><img src="cloud-3.png" alt="Cloud 3"></div>
+        <button id="fish-button" class="hidden">拋竿</button>
+        <div id="fishing-game" class="hidden">
+            <div id="fishing-bar">
+                <div class="bar-section grey"></div>
+                <div class="bar-section yellow"></div>
+                <div class="bar-section green"></div>
+                <div class="bar-section yellow"></div>
+                <div class="bar-section grey"></div>
+                <div id="pointer"></div>
+            </div>
+        </div>
+        <div id="message-board" class="hidden">
+            <div id="message-content">
+                <img id="fish-image" src="" alt="Fish Image" class="hidden">
+                <p id="message-text"></p>
+                <button id="confirm-button">確認</button>
+            </div>
         </div>
     </div>
-
     <button id="open-bag-button" onclick="openBag()">打開背包</button>
-
+    <script src="map5.js" defer></script>
 </body>
 </html>

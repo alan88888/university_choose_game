@@ -3,13 +3,11 @@
 <head>
     <link rel="stylesheet" type="text/css" href="map3.css">
     <script src="map3.js" defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centered Box</title>
     <script>
         // 检查用户来自哪个页面
         const urlParams = new URLSearchParams(window.location.search);
-    // 设置 currentPage 的值为 URL 参数中的 from 参数值，默认为 map1
         const currentPage = urlParams.get('from') || "map3";
 
         // 确定初始位置
@@ -42,18 +40,72 @@
     </script>
 </head>
 <body>
-
     <div id="game-container">
+        <div id="high-layer"></div>
+        <div class="cloud" id="cloud-1"><img src="cloud-1.png" alt="Cloud 1"></div>
+        <div class="cloud" id="cloud-2"><img src="cloud-2.png" alt="Cloud 2"></div>
+        <div class="cloud" id="cloud-3"><img src="cloud-3.png" alt="Cloud 3"></div>
         <div id="player" class="character"></div>
         <div id="transition-zone1"></div>
         <div id="transition-zone2"></div>
         <div id="transition-zone3"></div>
         <div id="transition-zone4"></div>
-        <div id="NUM">3</div>
+        <div id="info-box" class="info-box"></div>
+        <div id="center-square" class="center-square"></div>
+        <div id="view-button-container">
+            <button id="view-button" class="hidden">查看</button>
+        </div>
+        <div id="block-zone-1"></div>
+        <div id="block-zone-2"></div>
+        <div id="block-zone-3"></div>
+        <div id="block-zone-4"></div>
+        <div id="npc" class="npc">
+            <img src="knight-1.png" alt="NPC">
+        </div>
+        <div id="npc-talk-button-container">
+            <button id="npc-talk-button" class="hidden">對話</button>
+        </div>
+
+        <div id="npc-dialogue" class="hidden">
+            <img src="knight-2.png" alt="NPC" id="npc-image" class="npc-image">
+            <div id="npc-dialogue-content" class="dialogue-content">
+                <p id="npc-name">老騎士-瑟蓋爾</p>
+                <p id="npc-text">嗨</p>
+                <div id="npc-dialogue-options" class="dialogue-options"></div>
+            </div>
+        </div>
+        
+        <div id="hero" class="npc">
+            <img src="general-1.png" alt="Hero">
+        </div>
+        <div id="hero-talk-button-container">
+            <button id="hero-talk-button" class="hidden">對話</button>
+        </div>
+        <div id="hero-dialogue" class="hidden">
+            <img src="general-2.png" alt="Hero" id="hero-image" class="npc-image">
+            <div id="hero-dialogue-content">
+                <p id="hero-name">授勳勇者-金</p>
+                <p id="hero-text">你好，我是勇者</p>
+                <button id="hero-option1" class="dialogue-button">掰</button>
+                <button id="hero-option2" class="dialogue-button">再見</button>
+            </div>
+        </div>
+        <div id="witch" class="npc">
+            <img src="littlewitch-1.png" alt="Witch">
+        </div>
+        <div id="witch-talk-button-container">
+            <button id="witch-talk-button" class="hidden">對話</button>
+        </div>
+        <div id="witch-dialogue" class="hidden">
+            <img src="littlewitch-2.png" alt="Witch" id="witch-image" class="npc-image">
+            <div id="witch-dialogue-content">
+                <p id="witch-name">小魔女-芬妮</p>
+                <p id="witch-text">你好，我是小魔女</p>
+                <button id="witch-option1" class="dialogue-button">掰</button>
+                <button id="witch-option2" class="dialogue-button">再見</button>
+            </div>
+        </div>
     </div>
-
     <button id="open-bag-button" onclick="openBag()">打開背包</button>
-    
-
 </body>
 </html>

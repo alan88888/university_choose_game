@@ -1,38 +1,48 @@
 body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    margin-top: 120px;
+}
+
+#bag-container,
+#equipment-container {
+    background-color: #f5ca9e; /* 修改背景色 */
+}
+
+.item-slot {
+    background-color: #efac7e; /* 修改方格背景色 */
+}
+
+.equip-slot {
+    background-color:  #d39b72; /* 修改方格背景色 */
 }
 
 #bag-container {
-    width: 400px;
-    height: 400px;
+    width: 500px; /* 調整寬度以適應新的佈局 */
     border: 2px solid #000;
     display: flex;
     flex-direction: column;
-    position: relative;
+    margin-right: 20px; /* 添加右側間距以分隔裝備欄 */
+}
+
+#back-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 #top-section {
     display: flex;
-    height: 50%;
+    height: 40%; /* 調整高度以適應新的格子 */
     border-bottom: 2px solid #000;
-}
-
-#player-image {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 2px solid #000;
-}
-
-#player-image img {
-    max-width: 100%;
-    max-height: 100%;
 }
 
 #player-stats {
@@ -43,41 +53,59 @@ body {
     justify-content: center;
 }
 
+#skills-section {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #player-stats p {
     margin: 10px 0;
+    font-weight: bold;
 }
 
 #bottom-section {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-rows: repeat(4, 1fr); /* 更新行數以適應新的格子 */
+    gap: 10px; /* 調整間隔大小 */
     padding: 10px;
-    height: 50%;
+    height: 60%; /* 調整高度以適應新的格子 */
+    justify-content: end; /* 將格子靠右 */
+}
+
+#divider {
+    width: 80%;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 20px;
+}
+
+#equipment-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
 }
 
 .item-slot {
+    width: 70px; /* 調整道具格的寬度 */
+    height: 70px; /* 調整道具格的高度 */
     border: 2px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px; /* 添加圓角 */
 }
 
-#back-button {
+#clear-button {
     position: absolute;
     top: 10px;
     right: 10px;
     padding: 10px 20px;
     cursor: pointer;
-}
-
-#item-description {
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #000;
-    padding: 5px;
-    z-index: 1000;
-    pointer-events: none;
 }
 
 .item {
@@ -88,8 +116,8 @@ body {
 }
 
 .item img {
-    width: 65px; /* 你可以调整这个值来改变图片的大小 */
-    height: 65px; /* 你可以调整这个值来改变图片的大小 */
+    width: 55px; /* 你可以调整这个值来改变图片的大小 */
+    height: 55px; /* 你可以调整这个值来改变图片的大小 */
 }
 
 .item span {
@@ -101,4 +129,73 @@ body {
     border-radius: 50%;
     padding: 2px 5px;
     font-size: 12px;
+}
+
+#equipment-container {
+    width: 180px;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10px;
+    margin-top: 0px; /* 向下移动 */
+}
+
+#equipped-item {
+    width: 120px; /* 调整身上装备格的宽度 */
+    height: 120px; /* 调整身上装备格的高度 */
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+    color: red;
+    border-radius: 10px; /* 添加圓角 */
+}
+
+.equip-slot {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* 向下移动 */
+    border-radius: 10px; /* 添加圓角 */
+}
+
+#skills-section p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+#skills-section span {
+    display: block;
+    margin-top: 2px;
+    font-size: 14px;
+    color: #666;
+}
+
+#item-description {
+    position: absolute;
+    background: url('paper.png') no-repeat center center;
+    background-size: 100% 100%; /* 確保圖片的長寬皆被拉伸以適應容器 */
+    padding: 34px; /* 增加內邊距以避免文字與邊界過於接近 */
+    z-index: 1000;
+    pointer-events: none;
+    white-space: pre-wrap;
+    max-width: 170px; /* 限制描述框最大寬度 */
+    font-weight: bold; /* 文字設為粗體 */
+    color: #5C4033; /* 替換成適合羊皮紙的顏色 */
+}
+
+#item-description .item-name {
+    font-size: 20px; /* 調整字體大小 */
+    font-weight: bolder; /* 字體更粗 */
+    margin-bottom: 0px; /* 減少與描述內容之間的距離 */
+    color: #3E2723; /* 替換成更深的顏色 */
+    text-align: center; /* 文字置中 */
+    display: block; /* 確保文字塊獨占一行 */
 }

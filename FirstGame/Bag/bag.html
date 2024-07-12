@@ -8,32 +8,69 @@
     <title>背包</title>
 </head>
 <body>
-    <div id="bag-container">
-        <div id="top-section">
-            <div id="player-image">
-                <img src="path_to_player_image.png" alt="Player Image">
+    <div id="container">
+        <div id="bag-container">
+            <div id="top-section">
+                <div id="player-stats">
+                    <p>血量: <span id="health-current">50</span> / <span id="health-max">100</span></p>
+                    <p>魔力: <span id="mana-current">30</span> / <span id="mana-max">50</span></p>
+                    <p>攻擊: <span id="attack-current">20</span></p> <!-- 更新這一行 -->
+                    <p>防禦: <span id="defense-current">15</span></p> <!-- 更新這一行 -->
+                    <p>運氣: <span id="luck-current">10</span></p> <!-- 更新這一行 -->
+                </div>
+                
+                <div id="skills-section">
+                    <p>普通攻擊: <span id="normal-attack">無</span></p>
+                    <p>特殊攻擊: <span id="special-attack">無</span></p>
+                    <p>友誼連技: <span id="friendship-skill">無</span></p>
+                    <p>被動天賦: <span id="passive-skill">無</span></p>
+                </div>
+                
+                
             </div>
-            <div id="player-stats">
-                <p>血量: <span id="health-current">50</span> / <span id="health-max">100</span></p>
-                <p>攻擊: <span id="attack">20</span></p>
-                <p>防禦: <span id="defense">15</span></p>
-                <p>魔力: <span id="mana-current">30</span> / <span id="mana-max">50</span></p>
+            <div id="bottom-section">
+                <!-- 手動添加20個物品格子 -->
+                <div class="item-slot" id="slot-1"></div>
+                <div class="item-slot" id="slot-2"></div>
+                <div class="item-slot" id="slot-3"></div>
+                <div class="item-slot" id="slot-4"></div>
+                <div class="item-slot" id="slot-5"></div>
+                <div class="item-slot" id="slot-6"></div>
+                <div class="item-slot" id="slot-7"></div>
+                <div class="item-slot" id="slot-8"></div>
+                <div class="item-slot" id="slot-9"></div>
+                <div class="item-slot" id="slot-10"></div>
+                <div class="item-slot" id="slot-11"></div>
+                <div class="item-slot" id="slot-12"></div>
+                <div class="item-slot" id="slot-13"></div>
+                <div class="item-slot" id="slot-14"></div>
+                <div class="item-slot" id="slot-15"></div>
+                <div class="item-slot" id="slot-16"></div>
+                <div class="item-slot" id="slot-17"></div>
+                <div class="item-slot" id="slot-18"></div>
+                <div class="item-slot" id="slot-19"></div>
+                <div class="item-slot" id="slot-20"></div>
             </div>
         </div>
-        <div id="bottom-section">
-            <!-- 手動添加10個物品格子 -->
-            <div class="item-slot" id="slot-1"></div>
-            <div class="item-slot" id="slot-2"></div>
-            <div class="item-slot" id="slot-3"></div>
-            <div class="item-slot" id="slot-4"></div>
-            <div class="item-slot" id="slot-5"></div>
-            <div class="item-slot" id="slot-6"></div>
-            <div class="item-slot" id="slot-7"></div>
-            <div class="item-slot" id="slot-8"></div>
-            <div class="item-slot" id="slot-9"></div>
-            <div class="item-slot" id="slot-10"></div>
+        <!-- 新增的裝備區域 -->
+        <div id="equipment-container">
+            <div id="equipped-item" class="item-slot">身上裝備</div>
+            <div id="divider"></div>
+            <div id="equipment-section">
+                <div class="equip-slot" id="equip-slot-1"></div>
+                <div class="equip-slot" id="equip-slot-2"></div>
+                <div class="equip-slot" id="equip-slot-3"></div>
+                <div class="equip-slot" id="equip-slot-4"></div>
+                <div class="equip-slot" id="equip-slot-5"></div>
+                <div class="equip-slot" id="equip-slot-6"></div>
+                <div class="equip-slot" id="equip-slot-7"></div>
+                <div class="equip-slot" id="equip-slot-8"></div>
+                <div class="equip-slot" id="equip-slot-9"></div>
+                <div class="equip-slot" id="equip-slot-10"></div>
+            </div>
         </div>
     </div>
     <button id="back-button">返回</button>
+    <button id="clear-button">清除</button>
 </body>
 </html>
