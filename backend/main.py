@@ -22,7 +22,7 @@ app.add_middleware(
 mysql_config = {
     "host": "localhost",
     "user": "root",
-    "password": "43129108ta",
+    "password": "a12345",
     "database": "project_db",
 }
 
