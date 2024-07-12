@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
             quantity: 1,
             type: 'potion',
             effect: { health: 3, mana: 3 },
-            description: '迎賓酒 : 盛放於頗有韻味的高腳杯中有著些許氣泡的金黃色液體',
+            description: '盛放於頗有韻味的高腳杯中有著些許氣泡的金黃色液體',
             image: 'potion.png'
         };
 
@@ -138,11 +138,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function addDungToBag() {
         const dung = {
-            name: "秘製醬料蔬菜棒",
+            name: "蔬菜棒蘸雪",
             quantity: 1,
             type: "dung",
             effect: { health: -5, mana: -2 },
-            description: '秘製醬料蔬菜棒 : 十分甚至九分美味的蔬菜棒蘸醬令人回味無窮',
+            description: '十分甚至九分美味的蔬菜棒蘸醬令人回味無窮',
             image: "dung.png"
         };
 
