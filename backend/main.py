@@ -13,10 +13,10 @@ app = FastAPI()
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # 允许的来源（前端应用的地址）
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
-    allow_methods=["GET"],  # 允许的 HTTP 方法
-    allow_headers=["*"],  # 允许的请求头
+    allow_methods=["GET"],
+    allow_headers=["*"],
 )
 # MySQL
 mysql_config = {
@@ -117,7 +117,7 @@ def get_groups():
     except Exception as e:
         logging.error(f"Failed to fetch groups from database: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch groups from database")
-    
+
 # uvicorn main:app --reload
 
 
