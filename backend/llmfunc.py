@@ -11,7 +11,7 @@ app = FastAPI()
 mysql_config = {
     "host": "localhost",
     "user": "root",
-    "password": "43129108ta",
+    "password": "a12345",
     "database": "project_db",
 }
 
@@ -22,7 +22,7 @@ def connect_to_mysql():
     except Exception as e:
         logging.error(f"Failed to connect to MySQL database: {e}")
         raise HTTPException(status_code=500, detail="Failed to connect to database")
-    
+
 def get_adj():
     try:
         conn = connect_to_mysql()
@@ -37,7 +37,7 @@ def get_adj():
 
 class DialogData(BaseModel):
     dialog: str
-    
+
 classifier = pipeline("zero-shot-classification", model="MoritzLaurer/mDeBERTa-v3-base-mnli-xnli")
 def save_dialog_to_sequence(dialog: str):
     sequence_to_classify=""
