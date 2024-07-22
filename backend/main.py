@@ -6,18 +6,21 @@ from typing import List
 import pymysql
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from llmfunc import get_adj, save_dialog_to_sequence, analysis
 
 logging.basicConfig(level=logging.DEBUG)
 
 app = FastAPI()
+
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # MySQL
 mysql_config = {
     "host": "localhost",
@@ -34,7 +37,7 @@ def connect_to_mysql():
         logging.error(f"Failed to connect to MySQL database: {e}")
         raise HTTPException(status_code=500, detail="Failed to connect to database")
 
-# routing
+# Routing
 @app.get("/")
 def index():
     try:
@@ -48,7 +51,7 @@ def index():
         logging.error(f"Failed to connect to database: {e}")
         raise HTTPException(status_code=500, detail="Failed to connect to database")
 
-# location
+# Location
 @app.get("/location")
 def get_locations():
     try:
@@ -62,7 +65,7 @@ def get_locations():
         logging.error(f"Failed to fetch locations from database: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch locations from database")
 
-# env
+# Env
 @app.get("/env")
 def get_envs():
     try:
@@ -76,7 +79,7 @@ def get_envs():
         logging.error(f"Failed to fetch environments from database: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch environments from database")
 
-# area
+# Area
 @app.get("/area")
 def get_areas():
     try:
@@ -90,7 +93,7 @@ def get_areas():
         logging.error(f"Failed to fetch areas from database: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch areas from database")
 
-# door
+# Door
 @app.get("/door")
 def get_doors():
     try:
@@ -104,7 +107,7 @@ def get_doors():
         logging.error(f"Failed to fetch doors from database: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch doors from database")
 
-# group
+# Group
 @app.get("/group")
 def get_groups():
     try:
@@ -118,6 +121,21 @@ def get_groups():
         logging.error(f"Failed to fetch groups from database: {e}")
         raise HTTPException(status_code=500, detail="Failed to fetch groups from database")
 
-# uvicorn main:app --reload
+# Data model for analysis
+class DialogData(BaseModel):
+    dialog: str
 
+# Analysis
+@app.post("/analysis")
+def analysis_route(dialog_data: DialogData):
+    try:
+        sequence_to_classify = save_dialog_to_sequence(dialog_data.dialog)
+        result = analysis(sequence_to_classify)
+        return JSONResponse(content=result)
+    except Exception as e:
+        logging.error(f"Failed to perform analysis: {e}")
+        raise HTTPException(status_code=500, detail="Failed to perform analysis")
 
+# Run server
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="map2.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="map2.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +26,37 @@
                 initialPlayerX = 0;
                 initialPlayerY = 0;
         }
+
+        // 发送对话选择到后端
+        function sendDialogChoice(dialog) {
+            axios.post('http://localhost:8000/analysis', { dialog: dialog }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('分析结果:', response.data);
+            })
+            .catch(error => {
+                console.error('请求失败:', error);
+            });
+        }
+
+        // 点击事件处理函数
+        function onAcceptButtonClick() {
+            const dialog = "我已經等不及了，快點端上來罷";
+            sendDialogChoice(dialog);
+        }
+
+        function onDeclineButtonClick() {
+            const dialog = "不了，謝謝";
+            sendDialogChoice(dialog);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('accept-button').addEventListener('click', onAcceptButtonClick);
+            document.getElementById('decline-button').addEventListener('click', onDeclineButtonClick);
+        });
     </script>
 </head>
 <body>
@@ -47,5 +79,8 @@
         <button id="accept-button">我已經等不及了，快點端上來罷</button>
         <button id="decline-button">不了，謝謝</button>
     </div>
+
+    <!-- 显示服务器响应的对话框 -->
+    <div id="dialogue-response" class="dialogue-response"></div>
 </body>
 </html>
